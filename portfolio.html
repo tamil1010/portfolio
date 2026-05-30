@@ -1308,10 +1308,10 @@
             position:absolute;
 
             left:60px;
-
             top:0;
+
             width:3px;
-            height:100%;
+            height:var(--skills-line-height, 0%);
 
             background:linear-gradient(
                 to bottom,
@@ -1320,6 +1320,7 @@
             );
 
             box-shadow:0 0 20px rgba(0,245,255,0.5);
+            transition:height 0.1s ease;
         }
 
         .timeline-dot{
@@ -1675,9 +1676,18 @@
             position: absolute;
             left: 24px;
             top: 0;
-            bottom: 0;
+
             width: 2px;
-            background: linear-gradient(180deg, var(--royal-blue), var(--neon-cyan), transparent);
+            height: var(--edu-line-height, 0%);
+
+            background: linear-gradient(
+                180deg,
+                var(--royal-blue),
+                var(--neon-cyan)
+            );
+
+            box-shadow: 0 0 20px rgba(0,245,255,0.5);
+            transition: height 0.1s ease;
         }
 
         .timeline-item {
@@ -1789,38 +1799,88 @@
         }
 
         /* ============================================================
-           ACHIEVEMENTS SECTION
+        ACHIEVEMENTS SECTION
         ============================================================ */
+
+        #achievements{
+            padding:7rem 0;
+        }
+
         .achievement-container{
+            position:relative;
             display:flex;
             flex-direction:column;
             gap:40px;
-            position:relative;
-            padding-left:30px;
+            padding-left:120px;
         }
+
+        /* Vertical Timeline Line */
 
         .achievement-container::before{
             content:'';
             position:absolute;
-            left:0;
+            left:40px;
             top:0;
             width:3px;
-            height: var(--line-height, 0%);
+            height:var(--line-height,0%);
             background:linear-gradient(
                 to bottom,
                 #00f5ff,
                 #1a3cff
             );
-            box-shadow:0 0 20px rgba(0,245,255,0.5);
-            border-radius:3px;
+            border-radius:10px;
+            box-shadow:0 0 20px rgba(0,245,255,.5);
         }
 
-        #achievements {
-            padding: 7rem 0;
+        /* Achievement Row */
+
+        .achievement-item{
+            position:relative;
         }
-        #achievements .section-header{
-            margin-bottom: 80px;
+
+        /* Icon */
+
+        .achievement-dot{
+            position:absolute;
+            left:-105px;
+            top:50%;
+            transform:translateY(-50%);
+
+            width:54px;
+            height:54px;
+
+            border-radius:50%;
+
+            background:#06111f;
+            border:2px solid var(--neon-cyan);
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            color:var(--neon-cyan);
+            font-size:1.25rem;
+
+            z-index:10;
+
+            box-shadow:
+                0 0 20px rgba(0,245,255,.4),
+                0 0 45px rgba(26,60,255,.25);
+
+            transition:.4s ease;
         }
+
+        .achievement-item:hover .achievement-dot{
+            background:var(--neon-cyan);
+            color:#000;
+            transform:translateY(-50%) scale(1.12);
+
+            box-shadow:
+                0 0 35px rgba(0,245,255,.7),
+                0 0 70px rgba(0,245,255,.3);
+        }
+
+        /* Card */
 
         .achievement-card{
             display:grid;
@@ -1828,77 +1888,96 @@
             align-items:center;
             gap:35px;
 
-            background:rgba(10,20,40,0.7);
-            border:1px solid rgba(0,245,255,0.15);
-            border-radius:24px;
+            background:rgba(10,20,40,.75);
+            backdrop-filter:blur(20px);
+
+            border:1px solid rgba(0,245,255,.15);
+            border-radius:26px;
 
             overflow:hidden;
-            transition:0.4s ease;
+            transition:.4s ease;
         }
 
         .achievement-card:hover{
             transform:translateY(-8px);
-            border-color:rgba(0,245,255,0.3);
-            box-shadow:0 15px 40px rgba(0,245,255,0.12);
+            border-color:rgba(0,245,255,.35);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.45),
+                0 0 30px rgba(0,245,255,.12);
         }
+
+        /* Images */
 
         .achievement-image{
             width:100%;
-            height:260px;
-            background:#0a1220;
-            display:flex;
-            align-items:center;
-            justify-content:center;
+            height:280px;
             overflow:hidden;
-            flex-shrink:0;
+            background:#08121f;
         }
 
         .achievement-image img{
             width:100%;
             height:100%;
-            object-fit:cover;
-            object-position:center top;
             display:block;
         }
 
-        /* Screenshot images (HackerRank, LeetCode) need contain so nothing is cut */
-        .achievement-card:nth-child(2) .achievement-image img,
-        .achievement-card:nth-child(3) .achievement-image img{
-            object-fit:contain;
-            padding:12px;
-            background:#0a1220;
+        /* Hackathon Photo */
+
+        .achievement-item:first-child .achievement-image img{
+            object-fit:cover;
+            object-position:center;
         }
+
+        /* Screenshots */
+
+        .achievement-item:nth-child(2) .achievement-image img,
+        .achievement-item:nth-child(3) .achievement-image img{
+            object-fit:contain;
+            padding:15px;
+            background:#08121f;
+        }
+
+        /* Content */
 
         .achievement-content{
             padding:30px;
         }
 
         .achievement-content h3{
+            font-size:1.8rem;
             color:#4f8cff;
             margin-bottom:15px;
-            font-size:1.7rem;
         }
 
         .achievement-content p{
-            color:#d1d5db;
-            line-height:1.8;
+            color:#cfd8e3;
+            line-height:1.9;
+            font-size:.95rem;
         }
 
         /* Mobile */
-        @media (max-width:768px){
+
+        @media(max-width:768px){
+
+            .achievement-container{
+                padding-left:70px;
+            }
 
             .achievement-card{
                 grid-template-columns:1fr;
             }
 
-            .achievement-image img{
-                height:250px;
+            .achievement-dot{
+                left:-45px;
             }
 
-            .achievement-content{
-                padding:20px;
+            .achievement-image{
+                height:220px;
             }
         }
+
+
         /* ============================================================
            CONTACT SECTION
         ============================================================ */
@@ -3242,44 +3321,65 @@
             <div class="achievement-container">
 
                 <!-- Smart Campus Hackathon -->
-                <div class="achievement-card reveal">
-                    <div class="achievement-image">
-                        <img src="hackathon.jpeg" alt="Smart Campus Hackathon">
-                    </div>
+                <div class="achievement-item reveal">
 
-                    <div class="achievement-content">
-                        <h3>🏆 Smart Campus Hackathon Organizer</h3>
-                        <p>
-                            Organized and coordinated the Smart Campus Hackathon, facilitating collaboration among participants, mentors, and faculty members. Contributed to event planning, team management, and technical coordination while fostering innovation, teamwork, and technology-driven problem solving.
-                        </p>
+                    <div class="achievement-dot">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="achievement-card reveal">
+                        <div class="achievement-image">
+                            <img src="hackathon.jpeg" alt="Smart Campus Hackathon">
+                        </div>
+
+                        <div class="achievement-content">
+                            <h3> 🏆 Smart Campus Hackathon Organizer</h3>
+                            <p>
+                                Organized and coordinated the Smart Campus Hackathon, facilitating collaboration among participants, mentors, and faculty members. Contributed to event planning, team management, and technical coordination while fostering innovation, teamwork, and technology-driven problem solving.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- HackerRank Infinity -->
-                <div class="achievement-card reveal">
-                    <div class="achievement-image">
-                        <img src="hackerrank-infinity.png" alt="HackerRank Infinity">
-                    </div>
 
-                    <div class="achievement-content">
-                        <h3>🚀 HackerRank Infinity Member</h3>
-                        <p>
-                            Active HackerRank Infinity member with access to AI-powered mock interviews, coding assessments, technical screening simulations, and system design practice. Continuously enhancing coding proficiency, interview readiness, and software engineering skills.
-                        </p>
+                <div class="achievement-item reveal">
+
+                    <div class="achievement-dot">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div class="achievement-card reveal">
+                        <div class="achievement-image">
+                            <img src="hackerrank-infinity.png" alt="HackerRank Infinity">
+                        </div>
+
+                        <div class="achievement-content">
+                            <h3> 🎯 HackerRank Infinity Member</h3>
+                            <p>
+                                Active HackerRank Infinity member with access to AI-powered mock interviews, coding assessments, technical screening simulations, and system design practice. Continuously enhancing coding proficiency, interview readiness, and software engineering skills.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- LeetCode -->
-                <div class="achievement-card reveal">
-                    <div class="achievement-image">
-                        <img src="leetcode-profile.png" alt="LeetCode Problem Solver">
+                
+                <div class="achievement-item reveal">
+
+                    <div class="achievement-dot">
+                        <i class="fas fa-code"></i>
                     </div>
 
-                    <div class="achievement-content">
-                        <h3>💻 LeetCode Problem Solver</h3>
-                        <p>
-                            Solved 400+ Data Structures and Algorithms problems, strengthening analytical thinking and problem-solving skills. Regularly practice coding challenges in Java, Python, and JavaScript while preparing for technical interviews and competitive programming.
-                        </p>
+                    <div class="achievement-card reveal">
+                        <div class="achievement-image">
+                            <img src="leetcode-profile.png" alt="LeetCode Problem Solver">
+                        </div>
+
+                        <div class="achievement-content">
+                            <h3> 💻 LeetCode Problem Solver</h3>
+                            <p>
+                                Solved 400+ Data Structures and Algorithms problems, strengthening analytical thinking and problem-solving skills. Regularly practice coding challenges in Java, Python, and JavaScript while preparing for technical interviews and competitive programming.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -3350,6 +3450,19 @@
                                 <h4>LeetCode</h4>
                                 <p>View my problem solving</p>
                             </div>
+                            <i class="fas fa-arrow-right contact-item-arrow"></i>
+                        </a>
+
+                        <a href="tel:+919360398439" class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+
+                            <div class="contact-item-info">
+                                <h4>Phone</h4>
+                                <p>+91 93603 98439</p>
+                            </div>
+
                             <i class="fas fa-arrow-right contact-item-arrow"></i>
                         </a>
                     </div>
@@ -3938,6 +4051,80 @@
 
         window.addEventListener('scroll', animateAchievementLine);
         animateAchievementLine(); // run on load too
+
+        // ============================================================
+        // EDUCATION TIMELINE SCROLL ANIMATION
+        // ============================================================
+
+        function animateEducationLine() {
+
+            const container = document.querySelector('.timeline');
+
+            if (!container) return;
+
+            const containerRect = container.getBoundingClientRect();
+            const containerTop = containerRect.top + window.scrollY;
+            const containerHeight = container.offsetHeight;
+
+            const windowHeight = window.innerHeight;
+            const scrollY = window.scrollY;
+
+            const scrolledInto =
+                scrollY + windowHeight - containerTop;
+
+            const total =
+                containerHeight + windowHeight;
+
+            let progress = scrolledInto / total;
+
+            progress = Math.max(0, Math.min(1, progress));
+
+            container.style.setProperty(
+                '--edu-line-height',
+                (progress * 100) + '%'
+            );
+        }
+
+        window.addEventListener('scroll', animateEducationLine);
+
+        animateEducationLine();
+
+        // ============================================================
+        // SKILLS TIMELINE SCROLL ANIMATION
+        // ============================================================
+
+        function animateSkillsLine() {
+
+            const container = document.querySelector('.skills-timeline');
+
+            if (!container) return;
+
+            const containerRect = container.getBoundingClientRect();
+            const containerTop = containerRect.top + window.scrollY;
+            const containerHeight = container.offsetHeight;
+
+            const windowHeight = window.innerHeight;
+            const scrollY = window.scrollY;
+
+            const scrolledInto =
+                scrollY + windowHeight - containerTop;
+
+            const total =
+                containerHeight + windowHeight;
+
+            let progress = scrolledInto / total;
+
+            progress = Math.max(0, Math.min(1, progress));
+
+            container.style.setProperty(
+                '--skills-line-height',
+                (progress * 100) + '%'
+            );
+        }
+
+        window.addEventListener('scroll', animateSkillsLine);
+
+        animateSkillsLine();
 
         // Console Easter Egg
         console.log(

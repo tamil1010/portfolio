@@ -2629,7 +2629,7 @@
                         <a href="#projects" class="btn btn-primary">
                             <i class="fas fa-rocket"></i> View Projects
                         </a>
-                        <a href="#" class="btn btn-secondary" onclick="showResume(event)">
+                        <a href="Tamilvani_Resume.pdf" download class="btn btn-secondary">
                             <i class="fas fa-download"></i> Download Resume
                         </a>
                     </div>
@@ -3887,19 +3887,6 @@
 
         });
 
-        // ============================================================
-        // DOWNLOAD RESUME (DEMO)
-        // ============================================================
-        function showResume(e) {
-            e.preventDefault();
-            const toast = document.getElementById('toast');
-            toast.textContent = '📄 Resume download would start here!';
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-                toast.textContent = '✨ Message sent successfully!';
-            }, 3000);
-        }
 
         // ============================================================
         // SMOOTH SECTION TRANSITIONS

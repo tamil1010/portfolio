@@ -1789,6 +1789,117 @@
         }
 
         /* ============================================================
+           ACHIEVEMENTS SECTION
+        ============================================================ */
+        .achievement-container{
+            display:flex;
+            flex-direction:column;
+            gap:40px;
+            position:relative;
+            padding-left:30px;
+        }
+
+        .achievement-container::before{
+            content:'';
+            position:absolute;
+            left:0;
+            top:0;
+            width:3px;
+            height: var(--line-height, 0%);
+            background:linear-gradient(
+                to bottom,
+                #00f5ff,
+                #1a3cff
+            );
+            box-shadow:0 0 20px rgba(0,245,255,0.5);
+            border-radius:3px;
+        }
+
+        #achievements {
+            padding: 7rem 0;
+        }
+        #achievements .section-header{
+            margin-bottom: 80px;
+        }
+
+        .achievement-card{
+            display:grid;
+            grid-template-columns:420px 1fr;
+            align-items:center;
+            gap:35px;
+
+            background:rgba(10,20,40,0.7);
+            border:1px solid rgba(0,245,255,0.15);
+            border-radius:24px;
+
+            overflow:hidden;
+            transition:0.4s ease;
+        }
+
+        .achievement-card:hover{
+            transform:translateY(-8px);
+            border-color:rgba(0,245,255,0.3);
+            box-shadow:0 15px 40px rgba(0,245,255,0.12);
+        }
+
+        .achievement-image{
+            width:100%;
+            height:260px;
+            background:#0a1220;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            overflow:hidden;
+            flex-shrink:0;
+        }
+
+        .achievement-image img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            object-position:center top;
+            display:block;
+        }
+
+        /* Screenshot images (HackerRank, LeetCode) need contain so nothing is cut */
+        .achievement-card:nth-child(2) .achievement-image img,
+        .achievement-card:nth-child(3) .achievement-image img{
+            object-fit:contain;
+            padding:12px;
+            background:#0a1220;
+        }
+
+        .achievement-content{
+            padding:30px;
+        }
+
+        .achievement-content h3{
+            color:#4f8cff;
+            margin-bottom:15px;
+            font-size:1.7rem;
+        }
+
+        .achievement-content p{
+            color:#d1d5db;
+            line-height:1.8;
+        }
+
+        /* Mobile */
+        @media (max-width:768px){
+
+            .achievement-card{
+                grid-template-columns:1fr;
+            }
+
+            .achievement-image img{
+                height:250px;
+            }
+
+            .achievement-content{
+                padding:20px;
+            }
+        }
+        /* ============================================================
            CONTACT SECTION
         ============================================================ */
         #contact {
@@ -2402,6 +2513,7 @@
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
                 <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
@@ -3110,6 +3222,74 @@
 
     <div class="glow-divider"></div>
 
+
+    <!-- ============================================================
+         ACHIEVEMENTS SECTION
+    ============================================================ -->
+    <section id="achievements">
+        <div class="container">
+
+            <div class="section-header reveal">
+                <span class="section-tag">Milestones</span>
+                <h2 class="section-title">
+                    Achievements & <span>Recognition</span>
+                </h2>
+                <p class="section-desc">
+                    Milestones, certifications, and accomplishments that define my journey.
+                </p>
+            </div>
+
+            <div class="achievement-container">
+
+                <!-- Smart Campus Hackathon -->
+                <div class="achievement-card reveal">
+                    <div class="achievement-image">
+                        <img src="hackathon.jpeg" alt="Smart Campus Hackathon">
+                    </div>
+
+                    <div class="achievement-content">
+                        <h3>🏆 Smart Campus Hackathon Organizer</h3>
+                        <p>
+                            Organized and coordinated the Smart Campus Hackathon, facilitating collaboration among participants, mentors, and faculty members. Contributed to event planning, team management, and technical coordination while fostering innovation, teamwork, and technology-driven problem solving.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- HackerRank Infinity -->
+                <div class="achievement-card reveal">
+                    <div class="achievement-image">
+                        <img src="hackerrank-infinity.png" alt="HackerRank Infinity">
+                    </div>
+
+                    <div class="achievement-content">
+                        <h3>🚀 HackerRank Infinity Member</h3>
+                        <p>
+                            Active HackerRank Infinity member with access to AI-powered mock interviews, coding assessments, technical screening simulations, and system design practice. Continuously enhancing coding proficiency, interview readiness, and software engineering skills.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- LeetCode -->
+                <div class="achievement-card reveal">
+                    <div class="achievement-image">
+                        <img src="leetcode-profile.png" alt="LeetCode Problem Solver">
+                    </div>
+
+                    <div class="achievement-content">
+                        <h3>💻 LeetCode Problem Solver</h3>
+                        <p>
+                            Solved 400+ Data Structures and Algorithms problems, strengthening analytical thinking and problem-solving skills. Regularly practice coding challenges in Java, Python, and JavaScript while preparing for technical interviews and competitive programming.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
     <!-- ============================================================
          CONTACT SECTION
     ============================================================ -->
@@ -3222,16 +3402,16 @@
             <div class="footer-content">
                 <div class="footer-logo">Tamilvani S</div>
                 <div class="footer-text">
-                    Crafted with <span>❤️</span> by Tamilvani S · Full Stack Developer
+                    Designed & Developed <span>❤️</span> by Tamilvani S · Software Developer 
                 </div>
                 <div class="footer-socials">
-                    <a href="https://github.com" target="_blank" class="social-icon-link" title="GitHub">
+                    <a href="https://github.com/tamil1010/" target="_blank" class="social-icon-link" title="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://linkedin.com" target="_blank" class="social-icon-link" title="LinkedIn">
+                    <a href="https://linkedin.com/in/tamilvani-sivakumar/" target="_blank" class="social-icon-link" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://leetcode.com" target="_blank" class="social-icon-link" title="LeetCode">
+                    <a href="https://leetcode.com/u/_Tamilvani_/" target="_blank" class="social-icon-link" title="LeetCode">
                         <i class="fas fa-code"></i>
                     </a>
                 </div>
@@ -3680,6 +3860,84 @@
                 }
             });
         });
+
+        
+        // ============================================================
+        // ACHIEVEMENT IMAGE UPLOAD HANDLERS
+        // ============================================================
+        function triggerUpload(inputId) {
+            document.getElementById(inputId).click();
+        }
+ 
+        function previewImage(input, previewId, placeholderId, removeBtnId) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById(previewId);
+                    const placeholder = document.getElementById(placeholderId);
+                    const removeBtn = document.getElementById(removeBtnId);
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    placeholder.style.display = 'none';
+                    removeBtn.classList.add('visible');
+ 
+                    // Toast notification
+                    const toast = document.getElementById('toast');
+                    toast.innerHTML = '🖼️ Screenshot uploaded successfully!';
+                    toast.style.background = 'rgba(0, 245, 255, 0.1)';
+                    toast.style.borderColor = 'rgba(0, 245, 255, 0.3)';
+                    toast.style.color = 'var(--neon-cyan)';
+                    toast.classList.add('show');
+                    setTimeout(() => {
+                        toast.classList.remove('show');
+                        setTimeout(() => {
+                            toast.style.background = '';
+                            toast.style.borderColor = '';
+                            toast.style.color = '';
+                        }, 400);
+                    }, 2500);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+ 
+        function removeImage(event, previewId, placeholderId, removeBtnId, inputId) {
+            event.stopPropagation();
+            document.getElementById(previewId).style.display = 'none';
+            document.getElementById(previewId).src = '';
+            document.getElementById(placeholderId).style.display = 'flex';
+            document.getElementById(removeBtnId).classList.remove('visible');
+            document.getElementById(inputId).value = '';
+        }
+
+        // ============================================================
+        // ACHIEVEMENT TIMELINE SCROLL ANIMATION
+        // ============================================================
+        function animateAchievementLine() {
+            const container = document.querySelector('.achievement-container');
+            if (!container) return;
+
+            const containerRect = container.getBoundingClientRect();
+            const containerTop = containerRect.top + window.scrollY;
+            const containerHeight = container.offsetHeight;
+            const windowHeight = window.innerHeight;
+            const scrollY = window.scrollY;
+
+            // How far we've scrolled into the container
+            const scrolledInto = scrollY + windowHeight - containerTop;
+            const total = containerHeight + windowHeight;
+
+            let progress = scrolledInto / total;
+            progress = Math.max(0, Math.min(1, progress));
+
+            const percent = progress * 100;
+
+            // Apply to the ::before pseudo-element via a CSS variable
+            container.style.setProperty('--line-height', percent + '%');
+        }
+
+        window.addEventListener('scroll', animateAchievementLine);
+        animateAchievementLine(); // run on load too
 
         // Console Easter Egg
         console.log(

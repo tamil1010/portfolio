@@ -1977,6 +1977,136 @@
             }
         }
 
+        /* ===================================
+        CERTIFICATES SECTION
+        =================================== */
+
+        #certificates{
+            padding:7rem 0;
+        }
+
+        .certificate-wrapper{
+            position:relative;
+            display:flex;
+            align-items:center;
+            gap:20px;
+        }
+
+        .certificate-slider{
+            display:flex;
+            gap:25px;
+            overflow-x:auto;
+            scroll-behavior:smooth;
+            scrollbar-width:none;
+            padding:10px;
+        }
+
+        .certificate-slider::-webkit-scrollbar{
+            display:none;
+        }
+
+        .certificate-card{
+            min-width:420px;
+            height:280px;
+
+            position:relative;
+            overflow:hidden;
+
+            border-radius:24px;
+
+            border:1px solid rgba(0,245,255,.15);
+
+            background:#08111f;
+
+            transition:.4s ease;
+
+            flex-shrink:0;
+        }
+
+        .certificate-card:hover{
+            transform:translateY(-10px);
+
+            border-color:var(--neon-cyan);
+
+            box-shadow:
+            0 0 30px rgba(0,245,255,.15),
+            0 20px 40px rgba(0,0,0,.45);
+        }
+
+        .certificate-card img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            transition:.5s ease;
+        }
+
+        .certificate-card:hover img{
+            transform:scale(1.08);
+        }
+
+        .certificate-overlay{
+            position:absolute;
+            inset:0;
+
+            background:
+            linear-gradient(
+                to top,
+                rgba(0,0,0,.95),
+                rgba(0,0,0,.2)
+            );
+
+            display:flex;
+            flex-direction:column;
+            justify-content:flex-end;
+
+            padding:25px;
+
+            opacity:0;
+
+            transition:.4s ease;
+        }
+
+        .certificate-card:hover .certificate-overlay{
+            opacity:1;
+        }
+
+        .certificate-overlay h3{
+            color:white;
+            margin-bottom:8px;
+        }
+
+        .certificate-overlay p{
+            color:#cfd8e3;
+            margin-bottom:15px;
+        }
+
+        .certificate-overlay a{
+            color:var(--neon-cyan);
+            text-decoration:none;
+            font-weight:600;
+        }
+
+        .cert-btn{
+            width:50px;
+            height:50px;
+
+            border:none;
+            border-radius:50%;
+
+            cursor:pointer;
+
+            background:rgba(0,245,255,.1);
+            color:var(--neon-cyan);
+
+            font-size:1.2rem;
+
+            transition:.3s ease;
+        }
+
+        .cert-btn:hover{
+            background:var(--neon-cyan);
+            color:black;
+        }
 
         /* ============================================================
            CONTACT SECTION
@@ -2581,7 +2711,7 @@
     <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
     <!-- ============================================================
-         NAVBAR
+         NAVBAR SECTION
     ============================================================ -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -2593,6 +2723,7 @@
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#certificates" class="nav-link">Certificates</a></li>
                 <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
@@ -2629,23 +2760,23 @@
                         <a href="#projects" class="btn btn-primary">
                             <i class="fas fa-rocket"></i> View Projects
                         </a>
-                        <a href="Tamilvani_Resume.pdf" download class="btn btn-secondary">
+                        <a href="resume/Tamilvani_Resume.pdf" download class="btn btn-secondary">
                             <i class="fas fa-download"></i> Download Resume
                         </a>
                     </div>
                     <div class="hero-socials">
                         <div class="hero-greeting-line"></div>
-                        <a href="https://github.com/tamil1010/" target="_blank" class="social-icon-link" title="GitHub">
-                            <i class="fab fa-github"></i>
+                        <a href="mailto:limatinav2005@example.com" class="social-icon-link" title="Email">
+                            <i class="fas fa-envelope"></i>
                         </a>
                         <a href="https://www.linkedin.com/in/tamilvani-sivakumar/" target="_blank" class="social-icon-link" title="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
+                        <a href="https://github.com/tamil1010/" target="_blank" class="social-icon-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
                         <a href="https://leetcode.com/u/_Tamilvani_/" target="_blank" class="social-icon-link" title="LeetCode">
                             <i class="fas fa-code"></i>
-                        </a>
-                        <a href="mailto:limatinav2005@example.com" class="social-icon-link" title="Email">
-                            <i class="fas fa-envelope"></i>
                         </a>
                     </div>
                 </div>
@@ -2671,7 +2802,7 @@
                                     <div class="profile-stat-label">Projects</div>
                                 </div>
                                 <div class="profile-stat">
-                                    <div class="profile-stat-value">III</div>
+                                    <div class="profile-stat-value">IV</div>
                                     <div class="profile-stat-label">Year CSE</div>
                                 </div>
                                 <div class="profile-stat">
@@ -2692,6 +2823,7 @@
          ABOUT SECTION
     ============================================================ -->
     <section id="about">
+        <center><span class="section-tag">About Me</span></center>
         <div class="container">
             <div class="about-grid">
                 <div class="about-visual reveal-left">
@@ -2702,7 +2834,7 @@
                             </div>
                             <div class="about-card-title">
                                 <h3>Tamilvani S</h3>
-                                <p>Pre - Final Year · CSE Student · Government College of Engineering Erode</p>
+                                <p>Final Year · CSE Student · Government College of Engineering Erode</p>
                             </div>
                         </div>
                         <div class="about-detail-list">
@@ -2747,10 +2879,9 @@
                 </div>
 
                 <div class="about-content reveal-right">
-                    <span class="section-tag">About Me</span>
                     <h2>Passionate Developer &<br><span>Problem Solver</span></h2>
                     <p>
-                        I'm Tamilvani S, a passionate Full Stack Developer and Pre - Final Year Computer Science Engineering student at Government College of Engineering Erode. I love building modern, scalable web applications that combine beautiful UI with powerful backend systems.
+                        I'm Tamilvani S, a passionate Full Stack Developer and Final Year Computer Science Engineering student at Government College of Engineering Erode. I love building modern, scalable web applications that combine beautiful UI with powerful backend systems.
                     </p>
                     <p>
                         My core expertise lies in the <strong style="color: var(--neon-cyan)">MERN Stack</strong> (MongoDB, Express.js, React, Node.js), Java, and MySQL. I'm deeply interested in creating clean, performant applications that solve real-world problems elegantly.
@@ -3259,7 +3390,7 @@
                         <h3 class="timeline-title">B.E Computer Science & Engineering</h3>
                         <p class="timeline-subtitle">Government College of Engineering, Erode</p>
                         <p class="timeline-desc">
-                            Currently in III Year, building strong foundations in Data Structures, Algorithms, Database Management, Object oriented Programming, Operating Systems, and Software Engineering. Actively developing full-stack projects and participating in technical events.
+                            Currently in Final Year, building strong foundations in Data Structures, Algorithms, Database Management, Object oriented Programming, Operating Systems, and Software Engineering. Actively developing full-stack projects and participating in technical events.
                         </p>
                         <div class="timeline-tags">
                             <span class="timeline-tag">Data Structures</span>
@@ -3328,7 +3459,7 @@
                     </div>
                     <div class="achievement-card reveal">
                         <div class="achievement-image">
-                            <img src="hackathon.jpeg" alt="Smart Campus Hackathon">
+                            <img src="achievement/hackathon.jpeg" alt="Smart Campus Hackathon">
                         </div>
 
                         <div class="achievement-content">
@@ -3349,7 +3480,7 @@
                     </div>
                     <div class="achievement-card reveal">
                         <div class="achievement-image">
-                            <img src="hackerrank-infinity.png" alt="HackerRank Infinity">
+                            <img src="achievement/hackerrank-infinity.png" alt="HackerRank Infinity">
                         </div>
 
                         <div class="achievement-content">
@@ -3371,7 +3502,7 @@
 
                     <div class="achievement-card reveal">
                         <div class="achievement-image">
-                            <img src="leetcode-profile.png" alt="LeetCode Problem Solver">
+                            <img src="achievement/leetcode-profile.png" alt="LeetCode Problem Solver">
                         </div>
 
                         <div class="achievement-content">
@@ -3389,6 +3520,83 @@
     </section>
 
     <div class="glow-divider"></div>
+
+    
+    <!-- ============================================================
+         CERTIFICATES SECTION
+    ============================================================ -->
+
+    <section id="certificates">
+        <div class="container">
+
+            <div class="section-header reveal">
+                <span class="section-tag">Credentials</span>
+                <h2 class="section-title">
+                    My <span>Certificates</span>
+                </h2>
+                <p class="section-desc">
+                    Certifications that strengthen my development and problem-solving skills.
+                </p>
+            </div>
+
+            <div class="certificate-wrapper">
+
+                <button class="cert-btn prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div class="certificate-slider">
+
+                    <div class="certificate-card">
+                        <img src="certificate/html,css,js.png" alt="HTML CSS JavaScript Certificate">
+
+                        <div class="certificate-overlay">
+                            <h3>Programming Foundations with HTML, CSS & JavaScript</h3>
+                            <p>Duke University • Coursera</p>
+
+                            <a href="certificate/html,css,js.png" target="_blank">
+                                View Certificate
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="certificate-card">
+                        <img src="certificate/java.png" alt="Java Certificate">
+
+                        <div class="certificate-overlay">
+                            <h3>Java Programming</h3>
+                            <p>Duke University • Coursera</p>
+
+                            <a href="certificate/java.png" target="_blank">
+                                View Certificate
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="certificate-card">
+                        <img src="certificate/sql.jpeg" alt="SQL Certificate">
+
+                        <div class="certificate-overlay">
+                            <h3>Relational Databases & SQL</h3>
+                            <p>Udemy</p>
+
+                            <a href="certificate/sql.jpeg" target="_blank">
+                                View Certificate
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="cert-btn next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+
 
     <!-- ============================================================
          CONTACT SECTION
@@ -3518,14 +3726,20 @@
                     Designed & Developed <span>❤️</span> by Tamilvani S · Software Developer 
                 </div>
                 <div class="footer-socials">
-                    <a href="https://github.com/tamil1010/" target="_blank" class="social-icon-link" title="GitHub">
-                        <i class="fab fa-github"></i>
+                    <a href="mailto:limatinav2005@gmail.com" class="social-icon-link" title="Email">
+                        <i class="fas fa-envelope"></i>
                     </a>
                     <a href="https://linkedin.com/in/tamilvani-sivakumar/" target="_blank" class="social-icon-link" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
+                    <a href="https://github.com/tamil1010/" target="_blank" class="social-icon-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
                     <a href="https://leetcode.com/u/_Tamilvani_/" target="_blank" class="social-icon-link" title="LeetCode">
                         <i class="fas fa-code"></i>
+                    </a>
+                    <a href="tel:+919360398439" class="social-icon-link" title="Phone">
+                        <i class="fas fa-mobile-alt"></i>
                     </a>
                 </div>
             </div>
@@ -4127,6 +4341,24 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <script>emailjs.init("o1at82DuIKuAgnkdq");</script>
+
+    <script>
+        const slider = document.querySelector('.certificate-slider');
+
+        document.querySelector('.next-btn').addEventListener('click', () => {
+            slider.scrollBy({
+                left: 450,
+                behavior: 'smooth'
+            });
+        });
+
+        document.querySelector('.prev-btn').addEventListener('click', () => {
+            slider.scrollBy({
+                left: -450,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 
 </body>
 </html>
